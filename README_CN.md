@@ -94,8 +94,17 @@ curl -X POST http://localhost:8000/api/chat/repo \
   }'
 ```
 
-#### 方式 3: 访问 Web 界面
-打开浏览器: http://localhost:8000
+#### 方式 3: 使用 Web 聊天界面（推荐）
+打开浏览器访问聊天页面：http://localhost:8000/static/chat.html
+
+**聊天页面特性**：
+- 🎯 支持技术问答和仓库对话两种模式
+- 💬 实时消息显示，支持 Markdown 格式
+- 📚 自动保存会话历史，随时恢复对话
+- 🎨 现代化 UI，响应式设计
+- ⚡ 快速示例问题，一键开始对话
+
+详细说明请参考：[聊天页面文档](CHAT_PAGE.md)
 
 #### 方式 4: 访问 API 文档
 打开浏览器: http://localhost:8000/docs
@@ -103,6 +112,7 @@ curl -X POST http://localhost:8000/api/chat/repo \
 ## 📖 详细文档
 
 - 📘 [快速开始指南](QUICKSTART.md) - 5 分钟快速体验
+- 💬 [聊天页面文档](CHAT_PAGE.md) - Web 对话界面使用指南
 - 📙 [使用示例](examples.md) - 丰富的使用案例
 - 📕 [开发文档](DEVELOPMENT.md) - 开发指南和最佳实践
 - 📗 [架构设计](ARCHITECTURE.md) - 系统架构详解

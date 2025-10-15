@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat2Repo - 智能对话助手</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/chat.css">
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="/" class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <path d="M16 2.667c-7.364 0-13.333 5.97-13.333 13.333S8.636 29.333 16 29.333 29.333 23.364 29.333 16 23.364 2.667 16 2.667z" fill="#C71D23"/>
+                        <path d="M20.8 16h-6.4a.8.8 0 0 0-.8.8v3.2c0 .442.358.8.8.8h4a.8.8 0 0 1 .8.8v.8a3.2 3.2 0 0 1-3.2 3.2h-4.8A1.6 1.6 0 0 1 9.6 24v-8c0-.884.716-1.6 1.6-1.6h9.6a.8.8 0 0 0 .8-.8v-2.4a.8.8 0 0 0-.8-.8h-9.6a4.8 4.8 0 0 0-4.8 4.8v8a4.8 4.8 0 0 0 4.8 4.8h4.8a6.4 6.4 0 0 0 6.4-6.4v-4.8a.8.8 0 0 0-.8-.8z" fill="#fff"/>
+                    </svg>
+                    <span class="logo-text">Chat2Repo</span>
+                </a>
+                <nav class="nav-menu">
+                    <a href="/" class="nav-item">首页</a>
+                    <a href="/static/chat.html" class="nav-item active">开始对话</a>
+                </nav>
+            </div>
+            <div class="header-right">
+                <button id="new-chat-btn" class="btn-new-chat">新建对话</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main class="chat-container">
+        <!-- 侧边栏 - 对话模式选择 -->
+        <aside class="chat-sidebar">
+            <div class="mode-selector">
+                <h3 class="sidebar-title">对话模式</h3>
+                <div class="mode-options">
+                    <button class="mode-btn active" data-mode="tech">
+                        <div class="mode-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="M21 21l-4.35-4.35"></path>
+                            </svg>
+                        </div>
+                        <div class="mode-content">
+                            <div class="mode-name">技术问答</div>
+                            <div class="mode-desc">搜索开源解决方案</div>
+                        </div>
+                    </button>
+                    <button class="mode-btn" data-mode="repo">
+                        <div class="mode-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                        </div>
+                        <div class="mode-content">
+                            <div class="mode-name">仓库对话</div>
+                            <div class="mode-desc">分析具体仓库</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 仓库信息输入区（仅在仓库模式下显示） -->
+            <div id="repo-config" class="repo-config" style="display: none;">
+                <h3 class="sidebar-title">仓库信息</h3>
+                <div class="form-group">
+                    <label for="repo-owner">仓库所有者</label>
+                    <input type="text" id="repo-owner" placeholder="例如：openharmony" />
+                </div>
+                <div class="form-group">
+                    <label for="repo-name">仓库名称</label>
+                    <input type="text" id="repo-name" placeholder="例如：docs" />
+                </div>
+                <div class="form-group">
+                    <label for="repo-ref">分支/标签（可选）</label>
+                    <input type="text" id="repo-ref" placeholder="例如：master" />
+                </div>
+            </div>
+
+            <!-- 语言选择（仅在技术问答模式下显示） -->
+            <div id="language-config" class="language-config">
+                <h3 class="sidebar-title">筛选语言</h3>
+                <select id="language-select" class="language-select">
+                    <option value="">所有语言</option>
+                    <option value="Python">Python</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="TypeScript">TypeScript</option>
+                    <option value="Java">Java</option>
+                    <option value="Go">Go</option>
+                    <option value="Rust">Rust</option>
+                    <option value="C++">C++</option>
+                    <option value="C#">C#</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Ruby">Ruby</option>
+                </select>
+            </div>
+
+            <!-- 会话历史 -->
+            <div class="session-history">
+                <h3 class="sidebar-title">历史会话</h3>
+                <div id="session-list" class="session-list">
+                    <!-- 动态加载会话列表 -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- 对话区域 -->
+        <div class="chat-main">
+            <!-- 欢迎界面 -->
+            <div id="welcome-screen" class="welcome-screen">
+                <div class="welcome-content">
+                    <div class="welcome-icon">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="32" r="32" fill="#E6F2FF"/>
+                            <path d="M32 20v24M20 32h24" stroke="#1890FF" stroke-width="4" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h2 class="welcome-title">开始与 AI 对话</h2>
+                    <p class="welcome-text">选择对话模式，开始探索开源世界</p>
+                    <div class="welcome-examples">
+                        <h3>试试这些问题：</h3>
+                        <div class="example-list">
+                            <button class="example-btn" data-example="如何实现一个分布式任务调度系统？">
+                                💡 如何实现一个分布式任务调度系统？
+                            </button>
+                            <button class="example-btn" data-example="有哪些优秀的微服务框架？">
+                                🔍 有哪些优秀的微服务框架？
+                            </button>
+                            <button class="example-btn" data-example="推荐一些机器学习的开源项目">
+                                🤖 推荐一些机器学习的开源项目
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 消息列表 -->
+            <div id="message-list" class="message-list" style="display: none;">
+                <!-- 动态加载消息 -->
+            </div>
+
+            <!-- 输入区域 -->
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <textarea 
+                        id="chat-input" 
+                        class="chat-input" 
+                        placeholder="输入您的问题..." 
+                        rows="1"
+                    ></textarea>
+                    <button id="send-btn" class="send-btn" disabled>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2 10l18-8-8 18-2-8-8-2z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="input-hint">
+                    按 Enter 发送，Shift + Enter 换行
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/chat.js"></script>
+</body>
+</html>
