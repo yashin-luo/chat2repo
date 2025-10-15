@@ -94,7 +94,10 @@ curl -X POST http://localhost:8000/api/chat/repo \
   }'
 ```
 
-#### 方式 3: 访问 API 文档
+#### 方式 3: 访问 Web 界面
+打开浏览器: http://localhost:8000
+
+#### 方式 4: 访问 API 文档
 打开浏览器: http://localhost:8000/docs
 
 ## 📖 详细文档

@@ -1,0 +1,502 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 头部导航 */
+.header {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.logo-text {
+    color: #C71D23;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-item {
+    color: #666;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.nav-item:hover {
+    color: #C71D23;
+    background-color: #fff1f0;
+}
+
+.nav-item.active {
+    color: #C71D23;
+    font-weight: 500;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    width: 240px;
+    height: 36px;
+    padding: 0 36px 0 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 18px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.search-input:focus {
+    border-color: #C71D23;
+    box-shadow: 0 0 0 2px rgba(199, 29, 35, 0.1);
+}
+
+.search-btn {
+    position: absolute;
+    right: 8px;
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-login {
+    padding: 6px 16px;
+    color: #666;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.btn-login:hover {
+    color: #C71D23;
+    border-color: #C71D23;
+}
+
+.btn-signup {
+    padding: 6px 16px;
+    color: #fff;
+    background-color: #C71D23;
+    border: 1px solid #C71D23;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.btn-signup:hover {
+    background-color: #a31820;
+    border-color: #a31820;
+}
+
+/* 主要内容区域 */
+.main-content {
+    min-height: calc(100vh - 400px);
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #C71D23 0%, #8B1419 100%);
+    color: #fff;
+    padding: 80px 24px;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 42px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 24px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 60px;
+}
+
+.feature-card {
+    background: #fff;
+    padding: 32px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s;
+}
+
+.feature-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+}
+
+.feature-icon {
+    margin-bottom: 20px;
+}
+
+.feature-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.feature-desc {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.8;
+}
+
+.demo-section {
+    margin-top: 60px;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    text-align: center;
+    color: #333;
+}
+
+.demo-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    margin-bottom: 32px;
+}
+
+.demo-header {
+    background: #f7f7f7;
+    padding: 12px 20px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.demo-label {
+    font-size: 12px;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.code-block {
+    padding: 24px;
+    background: #282c34;
+    color: #abb2bf;
+    overflow-x: auto;
+}
+
+.code-block pre {
+    margin: 0;
+}
+
+.code-block code {
+    font-family: "Monaco", "Menlo", "Ubuntu Mono", "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 40px;
+}
+
+.btn-primary {
+    padding: 12px 32px;
+    background-color: #C71D23;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: #a31820;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(199, 29, 35, 0.3);
+}
+
+.btn-secondary {
+    padding: 12px 32px;
+    background-color: #fff;
+    color: #C71D23;
+    border: 1px solid #C71D23;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background-color: #fff1f0;
+}
+
+/* 底部 */
+.footer {
+    background: #1c1f23;
+    color: #8d949e;
+    padding: 48px 0 24px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+    margin-bottom: 40px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links a {
+    color: #8d949e;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2b3137;
+    border-radius: 50%;
+    color: #8d949e;
+    transition: all 0.3s;
+}
+
+.social-link:hover {
+    background: #C71D23;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    border-top: 1px solid #2b3137;
+    padding-top: 24px;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.copyright {
+    font-size: 13px;
+    color: #8d949e;
+}
+
+.footer-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+}
+
+.footer-meta a {
+    color: #8d949e;
+    transition: color 0.3s;
+}
+
+.footer-meta a:hover {
+    color: #fff;
+}
+
+.divider {
+    color: #4a5159;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .header-left {
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+    }
+
+    .nav-menu {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .search-input {
+        width: 180px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .footer-info {
+        text-align: center;
+    }
+
+    .footer-meta {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .code-block {
+        padding: 16px;
+    }
+
+    .code-block code {
+        font-size: 11px;
+    }
+}
