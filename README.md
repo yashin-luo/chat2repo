@@ -89,11 +89,20 @@ curl -X POST "http://localhost:8000/api/chat/tech" \
 curl "http://localhost:8000/api/sessions/{session_id}"
 ```
 
-### 4. 访问 Web 界面
+### 4. 使用 Web 聊天界面（推荐）
 
-打开浏览器访问: http://localhost:8000
+打开浏览器访问聊天页面：http://localhost:8000/static/chat.html
 
-服务启动后，可以通过浏览器访问美观的 Web 界面，了解项目功能和使用方式。
+**聊天页面特性**：
+- 🎯 支持技术问答和仓库对话两种模式
+- 💬 实时消息显示，支持 Markdown 格式
+- 📚 自动保存会话历史，随时恢复对话
+- 🎨 现代化 UI，响应式设计
+- ⚡ 快速示例问题，一键开始对话
+
+详细说明请参考：[聊天页面文档](CHAT_PAGE.md)
+
+服务启动后，可以通过浏览器访问首页（http://localhost:8000）了解项目功能和使用方式。
 
 ## 项目结构
 
