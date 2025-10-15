@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat2Repo - Gitee 仓库智能问答助手</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="https://gitee.com" class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <path d="M16 2.667c-7.364 0-13.333 5.97-13.333 13.333S8.636 29.333 16 29.333 29.333 23.364 29.333 16 23.364 2.667 16 2.667z" fill="#C71D23"/>
+                        <path d="M20.8 16h-6.4a.8.8 0 0 0-.8.8v3.2c0 .442.358.8.8.8h4a.8.8 0 0 1 .8.8v.8a3.2 3.2 0 0 1-3.2 3.2h-4.8A1.6 1.6 0 0 1 9.6 24v-8c0-.884.716-1.6 1.6-1.6h9.6a.8.8 0 0 0 .8-.8v-2.4a.8.8 0 0 0-.8-.8h-9.6a4.8 4.8 0 0 0-4.8 4.8v8a4.8 4.8 0 0 0 4.8 4.8h4.8a6.4 6.4 0 0 0 6.4-6.4v-4.8a.8.8 0 0 0-.8-.8z" fill="#fff"/>
+                    </svg>
+                    <span class="logo-text">Gitee</span>
+                </a>
+                <nav class="nav-menu">
+                    <a href="/" class="nav-item active">首页</a>
+                    <a href="https://gitee.com/explore" class="nav-item">开源</a>
+                    <a href="https://gitee.com/enterprises" class="nav-item">企业版</a>
+                    <a href="https://help.gitee.com" class="nav-item">帮助中心</a>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="search-box">
+                    <input type="text" placeholder="搜索仓库、用户、问题" class="search-input">
+                    <button class="search-btn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </button>
+                </div>
+                <a href="https://gitee.com/login" class="btn-login">登录</a>
+                <a href="https://gitee.com/signup" class="btn-signup">注册</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main class="main-content">
+        <div class="hero-section">
+            <h1 class="hero-title">Chat2Repo - Gitee 仓库智能问答助手</h1>
+            <p class="hero-subtitle">与 Gitee 上的任意仓库进行智能对话，快速了解代码结构、提交历史和技术问题</p>
+        </div>
+
+        <div class="container">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect width="48" height="48" rx="8" fill="#E6F2FF"/>
+                            <path d="M24 14v20M14 24h20" stroke="#1890FF" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">仓库智能问答</h3>
+                    <p class="feature-desc">与 Gitee 上的任意仓库进行对话，自动读取文件内容、分析代码结构、查看提交历史</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect width="48" height="48" rx="8" fill="#FFF7E6"/>
+                            <circle cx="24" cy="24" r="8" stroke="#FA8C16" stroke-width="2"/>
+                            <path d="M24 16v8l5 3" stroke="#FA8C16" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">技术问题解答</h3>
+                    <p class="feature-desc">提出技术问题，AI 会在 Gitee 上搜索相关开源项目，提供技术解决方案和参考实现</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect width="48" height="48" rx="8" fill="#F6FFED"/>
+                            <path d="M18 24l4 4 8-8" stroke="#52C41A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">OpenAI 标准 API</h3>
+                    <p class="feature-desc">支持 OpenAI 标准 API，兼容多种大语言模型，灵活配置使用</p>
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h2 class="section-title">快速开始</h2>
+                <div class="demo-card">
+                    <div class="demo-header">
+                        <span class="demo-label">API 示例</span>
+                    </div>
+                    <div class="code-block">
+                        <pre><code>curl -X POST "http://localhost:8000/api/chat/repo" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "repo_owner": "openharmony",
+    "repo_name": "docs",
+    "question": "这个项目的主要目录结构是什么？",
+    "session_id": "optional_session_id"
+  }'</code></pre>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="https://gitee.com" class="btn-primary">开始使用</a>
+                    <a href="https://github.com" class="btn-secondary">查看文档</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4 class="footer-title">产品</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://gitee.com/features">功能特性</a></li>
+                        <li><a href="https://gitee.com/pricing">价格</a></li>
+                        <li><a href="https://gitee.com/enterprises">企业版</a></li>
+                        <li><a href="https://gitee.com/education">教育版</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">开源社区</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://gitee.com/explore">开源项目</a></li>
+                        <li><a href="https://gitee.com/gvp">GVP 项目</a></li>
+                        <li><a href="https://gitee.com/events">开源活动</a></li>
+                        <li><a href="https://gitee.com/rankings">开源指数</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">帮助与支持</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://help.gitee.com">帮助中心</a></li>
+                        <li><a href="https://help.gitee.com/chat">智能客服</a></li>
+                        <li><a href="https://gitee.com/feedback">意见反馈</a></li>
+                        <li><a href="https://gitee.com/terms">使用条款</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">关于我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://gitee.com/about">关于 Gitee</a></li>
+                        <li><a href="https://gitee.com/contact">联系我们</a></li>
+                        <li><a href="https://gitee.com/careers">加入我们</a></li>
+                        <li><a href="https://gitee.com/press">媒体报道</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">关注我们</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="微信">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.045c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-6.656-6.088V8.87c-.135-.006-.27-.012-.406-.012zm-2.53 3.274c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" title="微博">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M10.098 20.323c-3.977.391-7.414-1.406-7.672-4.02-.259-2.609 2.759-5.047 6.74-5.441 3.979-.394 7.413 1.404 7.671 4.018.259 2.6-2.759 5.049-6.737 5.443h-.002z"/>
+                                <path d="M9.05 17.219c-.384.616-1.208.884-1.829.602-.612-.279-.793-.991-.406-1.593.384-.61 1.181-.878 1.796-.602.631.284.814 1.001.439 1.593zm2.196-1.196c-.151.234-.47.342-.707.24-.231-.098-.301-.347-.149-.577.146-.224.459-.337.697-.24.247.101.317.353.159.577zm-3.678.016c-.318.53-.996.78-1.517.558-.515-.22-.684-.802-.377-1.3.305-.492.959-.735 1.484-.534.513.195.671.764.41 1.276zm8.087-2.423c-.213-.075-.36-.194-.288-.399.28-.798.05-1.488-.613-1.944-1.463-.996-3.382-.209-4.262.611-.309.286-.591.373-.777.122-.186-.251.007-.565.271-.85.722-.774 1.659-1.301 2.751-1.388 1.093-.087 2.032.326 2.63 1.11.615.802.592 1.707-.051 2.522-.216.27-.45.435-.747.351l.086-.135z"/>
+                                <path d="M20.875 7.551c-.314-.883-.935-1.581-1.745-2.02-1.079-.584-2.282-.653-3.507-.233-.394.132-.54.385-.407.746.133.36.422.525.816.425.966-.247 1.865-.155 2.715.37.85.524 1.245 1.305 1.353 2.254.054.469.291.683.627.656.336-.027.543-.283.489-.752v-.446h-.341zm-1.652-.523c-.169-.452-.454-.81-.853-1.039-.533-.306-1.121-.399-1.729-.25-.323.08-.493.291-.436.575.056.284.294.465.619.408.441-.078.852-.021 1.213.232.361.252.524.607.564 1.034.032.337.236.536.543.538.307.002.513-.206.545-.54.001-.076.001-.151 0-.227v-.731h-.466z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" title="知乎">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M5.721 0C5.3 0 5 .3 5 .72v22.56c0 .42.3.72.721.72H9.14c.42 0 .72-.3.72-.72V.72c0-.42-.3-.72-.72-.72H5.72zM2.165 8.36H.749c-.42 0-.749.33-.749.75v10.32c0 .42.33.75.75.75h1.415c.42 0 .75-.33.75-.75V9.11c0-.42-.33-.75-.75-.75zm19.956.465c-1.02 0-1.833.813-1.833 1.833 0 .66-.03 1.155.69 1.875l2.445 2.445v5.025l-2.355-3.645h-2.01l3.57 5.745v1.92H24v-5.085c0-.465-.18-.915-.51-1.245l-2.49-2.49c-.165-.165-.135-.3-.135-.495 0-.42.345-.765.765-.765s.765.345.765.765v.39h1.44v-.39c0-1.02-.813-1.833-1.833-1.833zM15.09 9h-3v6.93L10.2 9H6.57v6l2.805 2.805V24h2.22v-6.93L13.485 24H15.09V9z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <p class="copyright">© 2024 Gitee.com 版权所有 | ICP证：沪B2-20170038</p>
+                    <div class="footer-meta">
+                        <a href="https://gitee.com/about/security">安全中心</a>
+                        <span class="divider">|</span>
+                        <a href="https://gitee.com/about/privacy">隐私政策</a>
+                        <span class="divider">|</span>
+                        <a href="https://gitee.com/about/terms">服务条款</a>
+                        <span class="divider">|</span>
+                        <a href="https://gitee.com/about/sitemap">网站地图</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

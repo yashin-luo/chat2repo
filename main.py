@@ -6,6 +6,8 @@ from datetime import datetime
 from typing import Dict
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from models import (
     RepoChatRequest, 
     TechChatRequest, 
@@ -16,6 +18,7 @@ from models import (
 from agents import RepoAgent, SearchAgent
 from config import get_settings
 import uvicorn
+import os
 
 
 # 创建应用
@@ -24,6 +27,11 @@ app = FastAPI(
     description="与 Gitee 仓库对话，获取技术解决方案",
     version="1.0.0"
 )
+
+# 挂载静态文件目录
+static_dir = os.path.join(os.path.dirname(__file__), "static")
+if os.path.exists(static_dir):
+    app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
 # 配置 CORS
 app.add_middleware(
@@ -40,7 +48,10 @@ sessions: Dict[str, SessionHistory] = {}
 
 @app.get("/")
 async def root():
-    """根路径"""
+    """根路径 - 返回主页"""
+    index_file = os.path.join(static_dir, "index.html")
+    if os.path.exists(index_file):
+        return FileResponse(index_file)
     return {
         "message": "Welcome to Chat2Repo API",
         "version": "1.0.0",

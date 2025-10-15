@@ -89,6 +89,12 @@ curl -X POST "http://localhost:8000/api/chat/tech" \
 curl "http://localhost:8000/api/sessions/{session_id}"
 ```
 
+### 4. 访问 Web 界面
+
+打开浏览器访问: http://localhost:8000
+
+服务启动后，可以通过浏览器访问美观的 Web 界面，了解项目功能和使用方式。
+
 ## 项目结构
 
 ```
